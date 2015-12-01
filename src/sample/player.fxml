@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.media.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<TabPane fx:id="tabPane" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.playerController">
+   <tabs>
+      <Tab fx:id="playerTab" closable="false" text="Player">
+         <content>
+            <BorderPane fx:id="borderPane" style="-fx-background-color: black;">
+               <bottom>
+                  <VBox fx:id="vBox">
+                     <children>
+                        <Slider fx:id="timeSlider" style="-fx-background-color: gray;" />
+                        <ToolBar fx:id="toolBar" style="-fx-background-color: gray;">
+                          <items>
+                            <Button fx:id="playButton" mnemonicParsing="false" onAction="#setPlayButton" text="Play" />
+                              <Button fx:id="pauseButton" mnemonicParsing="false" onAction="#setPauseButton" text="Pause" />
+                              <ToggleButton fx:id="repeatButton" mnemonicParsing="false" onAction="#setRepeatButton" text="Repeat" />
+                              <Label fx:id="playTime" text="00:00/00:00" />
+                          </items>
+                        </ToolBar>
+                     </children>
+                  </VBox>
+               </bottom>
+               <top>
+                  <VBox fx:id="vBoxTop" BorderPane.alignment="CENTER">
+                     <children>
+                        <MenuBar fx:id="menuBar" style="-fx-background-color: gray;">
+                          <menus>
+                            <Menu fx:id="file" mnemonicParsing="false" text="File">
+                              <items>
+                                <MenuItem fx:id="openFile" mnemonicParsing="false" onAction="#setOpenFile" text="Open File" />
+                              </items>
+                            </Menu>
+                            <Menu mnemonicParsing="false" text="Edit">
+                              <items>
+                                <MenuItem mnemonicParsing="false" text="Delete" />
+                              </items>
+                            </Menu>
+                            <Menu mnemonicParsing="false" text="Help">
+                              <items>
+                                <MenuItem mnemonicParsing="false" text="About" />
+                              </items>
+                            </Menu>
+                          </menus>
+                        </MenuBar>
+                        <Label fx:id="mediaName" alignment="CENTER" contentDisplay="CENTER" textFill="#fcfcfc" />
+                     </children>
+                  </VBox>
+               </top>
+               <center>
+                  <MediaView fx:id="mediaView" fitHeight="200.0" fitWidth="200.0" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+         </content>
+      </Tab>
+      <Tab closable="false" text="Playlist">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <SplitPane layoutX="-1.0" layoutY="-1.0" prefHeight="292.0" prefWidth="324.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="108.0" prefWidth="0.0" />
+                    </items>
+                  </SplitPane>
+               </children></AnchorPane>
+        </content>
+      </Tab>
+   </tabs>
+</TabPane>
